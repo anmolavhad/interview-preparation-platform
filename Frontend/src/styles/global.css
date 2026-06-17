@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1B3C59;
+  --secondary: #456173;
+  --accent: #11BFAE;
+  --background: #F2F2F0;
+}
+
+body {
+  background-color: var(--background);
+  font-family: Arial, sans-serif;
+}
