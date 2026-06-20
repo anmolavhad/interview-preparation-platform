@@ -19,22 +19,15 @@ function TestPage() {
 
   const existingIndex =
     updatedAnswers.findIndex(
-      (answer) =>
-        answer.questionId ===
-        question._id
+      (answer) => answer.questionId === question._id
     );
 
   if (existingIndex !== -1) {
-    updatedAnswers[
-      existingIndex
-    ].selectedAnswer =
-      option;
+    updatedAnswers[existingIndex].selectedAnswer = option;
   } else {
     updatedAnswers.push({
-      questionId:
-        question._id,
-      selectedAnswer:
-        option,
+      questionId:question._id,
+      selectedAnswer:option,
     });
   }
 
@@ -55,13 +48,10 @@ const handleSubmit = async () => {
 
     navigate("/result", {
       state: {
-        attempt:
-          response.data.attempt,
+        attempt: response.data.attempt,
       },
     });
   } catch (error) {
-    console.log(error);
-    console.log(error.response);
     alert(
       error.response?.data
         ?.message ||
@@ -89,30 +79,16 @@ const handleSubmit = async () => {
             <input
               type="radio"
               name="option"
-              checked={
-                answers.find(
-                  (answer) =>
-                    answer.questionId ===
-                      question._id &&
-                    answer.selectedAnswer ===
-                      option
-                )
-              }
-              onChange={() =>
-                handleAnswerSelect(
-                  option
-                )
-              }
+              checked={answers.find(
+                  (answer) => answer.questionId === question._id && answer.selectedAnswer === option)}
+              onChange={() => handleAnswerSelect(option)}
             />
-
             {option}
           </label>
         </div>
       )
     )}
-
     <br />
-
     <div>
   <button
     disabled={

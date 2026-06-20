@@ -11,15 +11,26 @@ export const submitTest = async (req, res) => {
         message: "No answers submitted",
       });
     }
-
+    const answerDetails = [];
     let correctAnswers = 0;
 
     for (const answer of answers) {
       const question = await Question.findById(
         answer.questionId
       );
-
-      if (question && question.correctAnswer === answer.selectedAnswer) {
+      if (!question) {
+        continue; // Skip if question not found
+      }
+      const isCorrect = question.correctAnswer === answer.selectedAnswer;
+      answerDetails.push({
+        questionId: answer.questionId,
+        question : question.question,
+        selectedAnswer: answer.selectedAnswer,
+        correctAnswer: question.correctAnswer,
+        explanation: question.explanation,
+        isCorrect,
+      });
+      if (isCorrect) {
         correctAnswers++;
       }
     }
@@ -42,6 +53,7 @@ export const submitTest = async (req, res) => {
       correctAnswers,
       score,
       accuracy,
+      answers: answerDetails,
     });
 
     res.status(200).json({
@@ -68,5 +80,19 @@ export const getMyAttempts = async (req, res) => {
     res.status(500).json({
       message: error.message,
     }); 
+  }
+};
+
+export const getAttemptById = async (req, res) => {
+  try {
+    const attempt = await TestAttempt.findById(req.params.id);
+
+    if (!attempt) {
+      return res.status(404).json({ message: "Attempt not found" });
+    }
+
+    res.status(200).json({ attempt });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };

@@ -1,0 +1,24 @@
+.profile-page {
+  padding: 30px;
+}
+
+.profile-card {
+  max-width: 500px;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  background: white;
+
+  box-shadow: 0 2px 8px rgba(
+    0,
+    0,
+    0,
+    0.1
+  );
+}
+
+.profile-card p {
+  margin-bottom: 15px;
+}

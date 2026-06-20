@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Navbar from "../components/Navbar";
 import api from "../api/axios";
 
 import "../styles/Dashboard.css";
@@ -32,6 +32,7 @@ function Dashboard() {
   }
 
   return (
+    <><Navbar />
     <div className="dashboard">
       <h1 className="dashboard-title">
         Dashboard
@@ -86,6 +87,7 @@ function Dashboard() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

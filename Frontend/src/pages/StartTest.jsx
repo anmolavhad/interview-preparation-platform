@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import "../styles/StartTest.css";
+import Navbar from "../components/Navbar";
 
 function StartTest() {
   const [testType, setTestType] = useState("mock");
-  const [subject, setSubject] = useState("DSA");
+  const [subject, setSubject] = useState("-");
   const navigate = useNavigate();
   
   const handleStartTest = async () => {
@@ -27,8 +28,7 @@ function StartTest() {
 
     navigate("/test", {
       state: {
-        questions:
-          response.data.questions,
+        questions: response.data.questions,
         testType,
         subject,
       },
@@ -42,6 +42,7 @@ function StartTest() {
   }
 };
   return (
+    <><Navbar />
     <div className="start-test">
       <div className="test-card">
         <h1>Start Test</h1>
@@ -99,6 +100,7 @@ function StartTest() {
         </button>
       </div>
     </div>
+    </>
   );
 }
 

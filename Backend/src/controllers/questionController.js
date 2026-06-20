@@ -41,7 +41,6 @@ export const getQuestions = async (req, res) => {
     );
 
     res.status(200).json({
-      success: true,
       page,
       totalPages: Math.ceil(
         totalQuestions / limit
@@ -51,7 +50,6 @@ export const getQuestions = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      success: false,
       message: error.message,
     });
   }
@@ -65,9 +63,9 @@ export const updateQuestion = async (req, res) => {
       return res.status(404).json({ success: false, message: "Question not found" });
     }
 
-    res.status(200).json({ success: true, question });
+    res.status(200).json({question });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({message: error.message });
   }
 };
 
@@ -76,11 +74,11 @@ export const deleteQuestion = async (req, res) => {
     const question = await Question.findByIdAndDelete(req.params.id);
 
     if (!question) {
-      return res.status(404).json({ success: false, message: "Question not found" });
+      return res.status(404).json({ message: "Question not found" });
     }
 
-    res.status(200).json({ success: true, message: "Question deleted successfully" });
+    res.status(200).json({ message: "Question deleted successfully" });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };

@@ -20,10 +20,6 @@ app.use("/api/questions", questionRoutes);
 app.use("/api/test-attempts", testAttemptRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/tests", testRoutes);
-app.get("/", (req, res) => {
-  res.send("Placement Prep Platform Backend Running");
-});
-
 
 const PORT = process.env.PORT || 5000;
 

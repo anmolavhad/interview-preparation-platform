@@ -7,6 +7,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import StartTest from "./pages/StartTest";
 import TestPage from "./pages/TestPage";
 import Result from "./pages/Result";
+import Profile from "./pages/Profile";
+import History from "./pages/History";
+import AttemptDetails from "./pages/AttemptDetails";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
         <Route path="/start-test" element={<ProtectedRoute><StartTest /></ProtectedRoute>} />
         <Route path="/test" element={<ProtectedRoute><TestPage /></ProtectedRoute>} />
         <Route path="/result" element={<ProtectedRoute><Result /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
+        <Route path="/attempt/:id" element={<ProtectedRoute><AttemptDetails /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   );
