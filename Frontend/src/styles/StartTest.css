@@ -1,39 +1,87 @@
 .start-test {
-  min-height: 100vh;
-  padding: 30px;
-  background-color: var(--background);
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.start-test h1 {
+  font-size: 40px;
+  color: var(--primary);
+  margin-bottom: 40px;
+}
+
+.test-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
 .test-card {
-  max-width: 500px;
-  margin: auto;
-  padding: 25px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--white);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+
+  transition: 0.3s;
 }
 
-.test-card h1 {
-  margin-bottom: 20px;
+.test-card:hover {
+  transform: translateY(-5px);
+}
+
+.test-card h2 {
+  font-size: 30px;
   color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.test-card p {
+  color: var(--secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
 }
 
 .test-card select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  margin-bottom: 25px;
+
+  outline: none;
 }
+
 
 .test-card button {
   width: 100%;
-  padding: 12px;
+
+  padding: 15px;
+
   border: none;
-  cursor: pointer;
-  border-radius: 8px;
+  border-radius: 12px;
+
+  background: var(--accent);
   color: white;
-  background-color: var(--primary);
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
 }
 
-.test-card button:hover {
-  background-color: var(--accent);
+@media (max-width: 768px) {
+  .test-options {
+    grid-template-columns: 1fr;
+  }
+
+  .start-test h1 {
+    font-size: 38px;
+  }
 }

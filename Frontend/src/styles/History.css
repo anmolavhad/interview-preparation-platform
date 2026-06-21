@@ -1,25 +1,69 @@
 .history-page {
-  padding: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .history-page h1 {
-  margin-bottom: 20px;
+  color: var(--primary);
+  margin-bottom: 25px;
+  font-size: 36px;
 }
 
-table {
+.history-page table {
   width: 100%;
+
+  background: var(--white);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+
   border-collapse: collapse;
-  background: white;
 }
 
-th,
-td {
-  padding: 12px;
-  border: 1px solid #ddd;
+.history-page th {
+  background: var(--primary);
+
+  color: white;
+
+  padding: 16px;
+
+  font-size: 16px;
+}
+
+.history-page td {
+  padding: 16px;
+
+  border-bottom: 1px solid #eee;
+
   text-align: center;
 }
 
-th {
-  background-color: var(--primary);
-  color: white;
+.history-page tr:hover {
+  background: #f8f9fa;
+}
+
+.history-page a {
+  color: var(--accent);
+
+  font-weight: bold;
+}
+
+.history-page a:hover {
+  text-decoration: underline;
+}
+
+.empty-history {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
 }

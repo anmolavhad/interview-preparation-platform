@@ -1,0 +1,65 @@
+.result-page {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.result-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+
+  text-align: center;
+}
+
+.result-title {
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.result-score {
+  font-size: 60px;
+  font-weight: bold;
+  color: var(--accent);
+
+  margin-bottom: 20px;
+}
+
+.result-info {
+  margin-bottom: 15px;
+
+  font-size: 20px;
+
+  color: var(--secondary);
+}
+
+.result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.result-buttons button {
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.dashboard-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.history-btn {
+  background: var(--accent);
+  color: white;
+}

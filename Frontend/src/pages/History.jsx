@@ -44,9 +44,9 @@ function History() {
         <h1>Test History</h1>
 
         {attempts.length === 0 ? (
-          <p>
+          <div className="empty-history">
             No tests attempted yet.
-          </p>
+          </div>
         ) : (
           <table>
             <thead>

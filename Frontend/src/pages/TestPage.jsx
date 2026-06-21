@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/TestPage.css";
+import Navbar from "../components/Navbar";
 
 function TestPage() {
   const navigate = useNavigate();
@@ -60,69 +62,90 @@ const handleSubmit = async () => {
   }
 };
 
-    return (
-  <div>
-    <h2>
-      Question {currentQuestion + 1}
-      {" "}of{" "}
-      {questions.length}
-    </h2>
+  return (
+  <>
+    <Navbar />
 
-    <h3>
-      {question.question}
-    </h3>
+    <div className="test-page">
+      <div className="question-card">
+        <div className="question-header">
+          <span className="question-badge">
+            Question {currentQuestion + 1}
+          </span>
 
-    {question.options.map(
-      (option) => (
-        <div key={option}>
-          <label>
-            <input
-              type="radio"
-              name="option"
-              checked={answers.find(
-                  (answer) => answer.questionId === question._id && answer.selectedAnswer === option)}
-              onChange={() => handleAnswerSelect(option)}
-            />
-            {option}
-          </label>
+          <span className="question-progress">
+            {currentQuestion + 1} / {questions.length}
+          </span>
         </div>
-      )
-    )}
-    <br />
-    <div>
-  <button
-    disabled={
-      currentQuestion === 0
-    }
-    onClick={() =>
-      setCurrentQuestion(
-        currentQuestion - 1
-      )
-    }
-  >
-    Previous
-  </button>
 
-  {currentQuestion ===
-  questions.length - 1 ? (
-    <button
-      onClick={handleSubmit}
-    >
-      Submit Test
-    </button>
-  ) : (
-    <button
-      onClick={() =>
-        setCurrentQuestion(
-          currentQuestion + 1
-        )
-      }
-    >
-      Next
-    </button>
-  )}
+        <h2 className="question-text">
+          {question.question}
+        </h2>
+
+        <div className="options-container">
+          {question.options.map((option) => (
+            <label
+              key={option}
+              className={`option-card ${
+                answers.find(
+                  (answer) =>
+                    answer.questionId === question._id &&
+                    answer.selectedAnswer === option
+                )
+                  ? "selected"
+                  : ""
+              }`}
+            >
+              <input
+                type="radio"
+                name="option"
+                checked={
+                  answers.find(
+                    (answer) =>
+                      answer.questionId === question._id &&
+                      answer.selectedAnswer === option
+                  )
+                }
+                onChange={() => handleAnswerSelect(option)}
+              />
+
+              <span>{option}</span>
+            </label>
+          ))}
+        </div>
+
+        <div className="navigation-buttons">
+          <button
+            className="prev-btn"
+            disabled={currentQuestion === 0}
+            onClick={() =>
+              setCurrentQuestion(currentQuestion - 1)
+            }
+          >
+            Previous
+          </button>
+
+          {currentQuestion === questions.length - 1 ? (
+            <button
+              className="submit-btn"
+              onClick={handleSubmit}
+            >
+              Submit Test
+            </button>
+          ) : (
+            <button
+              className="next-btn"
+              onClick={() =>
+                setCurrentQuestion(currentQuestion + 1)
+              }
+            >
+              Next
+            </button>
+          )}
+        </div>
+      </div>
     </div>
-  </div>
+  </>
 );
 }
 

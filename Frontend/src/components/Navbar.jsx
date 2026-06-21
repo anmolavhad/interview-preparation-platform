@@ -16,9 +16,11 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">
+      <Link
+        to="/dashboard"
+        className="logo">
         Interview Prep
-      </div>
+      </Link>
 
       <div className="nav-links">
         <Link to="/dashboard">
