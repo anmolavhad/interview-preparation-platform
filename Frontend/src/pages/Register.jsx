@@ -92,10 +92,7 @@ function Register() {
             }
           />
 
-          <button
-            className="auth-btn"
-            type="submit"
-          >
+          <button className="auth-btn" type="submit">
             Register
           </button>
         </form>

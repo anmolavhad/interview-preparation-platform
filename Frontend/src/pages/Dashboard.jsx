@@ -54,9 +54,9 @@ function Dashboard() {
         </div>
 
         <div className="stat-card">
-          <h3>Best Score</h3>
+          <h3>Best Accuracy</h3>
           <p>
-            {dashboard.bestScore}
+            {dashboard.bestAccuracy}%
           </p>
         </div>
 

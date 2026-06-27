@@ -1,0 +1,51 @@
+.add-question-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.question-form-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 35px;
+}
+
+.question-form-card h1 {
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+.question-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.question-form-card input,
+.question-form-card select,
+.question-form-card textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.question-form-card textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.question-form-card button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.question-form-card button:hover {
+  opacity: 0.9;
+}

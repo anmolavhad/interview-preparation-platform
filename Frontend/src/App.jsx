@@ -10,6 +10,10 @@ import Result from "./pages/Result";
 import Profile from "./pages/Profile";
 import History from "./pages/History";
 import AttemptDetails from "./pages/AttemptDetails";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AddQuestion from "./pages/admin/AddQuestion";
+import ShowQuestions from "./pages/admin/ShowQuestions";
+import EditQuestion from "./pages/admin/EditQuestion";
 
 function App() {
   return (
@@ -24,7 +28,11 @@ function App() {
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
         <Route path="/attempt/:id" element={<ProtectedRoute><AttemptDetails /></ProtectedRoute>} />
-      </Routes>
+        <Route path="/admin" element={<AdminDashboard />}/>
+        <Route path="/admin/add-question" element={<AddQuestion />}/>
+        <Route path="/admin/questions" element={<ShowQuestions />}/>
+        <Route path="/admin/edit-question/:id" element={<EditQuestion />}/> 
+    </Routes>
     </BrowserRouter>
   );
 }

@@ -4,20 +4,13 @@ import Question from "../models/Question.js";
 
 export const submitTest = async (req, res) => {
   try {
-    const { testType, subject, answers } = req.body;
+    const { testType, subject, answers, totalQuestions } = req.body;
 
-    if (!answers || answers.length === 0) {
-      return res.status(400).json({
-        message: "No answers submitted",
-      });
-    }
     const answerDetails = [];
     let correctAnswers = 0;
 
     for (const answer of answers) {
-      const question = await Question.findById(
-        answer.questionId
-      );
+      const question = await Question.findById(answer.questionId);
       if (!question) {
         continue; // Skip if question not found
       }
@@ -35,7 +28,6 @@ export const submitTest = async (req, res) => {
       }
     }
 
-    const totalQuestions = answers.length;
     const score = correctAnswers;
 
     const accuracy = Number(
