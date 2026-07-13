@@ -6,7 +6,8 @@ import questionRoutes from "./src/routes/questionRoutes.js";
 import testAttemptRoutes from "./src/routes/testAttemptRoutes.js";
 import dashboardRoutes from "./src/routes/dashboardRoutes.js";
 import testRoutes from "./src/routes/testRoutes.js";
-import contestRoutes from "./routes/contestRoutes.js";
+import contestRoutes from "./src/routes/contestRoutes.js";
+import contestAttemptRoutes from "./src/routes/contestAttemptRoutes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.use("/api/test-attempts", testAttemptRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/tests", testRoutes);
 app.use("/api/contests",contestRoutes);
+app.use("/api/contest-attempts", contestRoutes);
 
 const PORT = process.env.PORT || 5000;
 

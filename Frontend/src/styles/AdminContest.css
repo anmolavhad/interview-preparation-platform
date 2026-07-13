@@ -1,0 +1,144 @@
+.contest-page {
+
+    max-width: 1300px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+
+}
+
+.contest-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.create-btn{
+
+    background:var(--accent);
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.create-btn:hover{
+
+    opacity:.9;
+
+}
+
+.contest-section{
+
+    margin-bottom:45px;
+
+}
+
+.contest-section h2{
+
+    margin-bottom:15px;
+
+    color:var(--primary);
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+thead{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+th,
+td{
+
+    padding:15px;
+
+    text-align:center;
+
+}
+
+tbody tr{
+
+    border-bottom:1px solid #eee;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+.action-btn{
+
+    padding:8px 12px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    margin-right:8px;
+
+    font-size:14px;
+
+}
+
+.view{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.edit{
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+
+.delete{
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+}

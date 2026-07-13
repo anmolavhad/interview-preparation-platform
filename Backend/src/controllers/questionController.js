@@ -55,6 +55,19 @@ export const getQuestions = async (req, res) => {
     });
   }
 }; 
+export const getAllQuestions = async (req, res) => {
+  try {
+    const questions = await Question.find();
+    res.status(200).json({
+      questions,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 export const getQuestionById = async (req, res) => {
   try {
     const question =

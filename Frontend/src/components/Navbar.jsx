@@ -30,7 +30,9 @@ function Navbar() {
         <Link to="/start-test">
           Start Test
         </Link>
-
+        <Link to="/contests">
+          Contests
+        </Link>
         <Link to="/profile">
           Profile
         </Link>

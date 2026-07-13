@@ -14,6 +14,11 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddQuestion from "./pages/admin/AddQuestion";
 import ShowQuestions from "./pages/admin/ShowQuestions";
 import EditQuestion from "./pages/admin/EditQuestion";
+import AdminContest from "./pages/AdminContest";
+import CreateContest from "./pages/CreateContest";
+import Contests from "./pages/Contests";
+import ContestDetails from "./pages/ContestDetails";
+import ContestTest from "./pages/ContestTest";
 
 function App() {
   return (
@@ -32,7 +37,12 @@ function App() {
         <Route path="/admin/add-question" element={<AddQuestion />}/>
         <Route path="/admin/questions" element={<ShowQuestions />}/>
         <Route path="/admin/edit-question/:id" element={<EditQuestion />}/> 
-    </Routes>
+        <Route path="/admin/contests" element={<AdminContest />} />
+        <Route path="/admin/contest/create" element={<CreateContest />} />
+        <Route path="/contests" element={<ProtectedRoute><Contests /></ProtectedRoute>} />
+        <Route path="/contest/:id" element={<ProtectedRoute><ContestDetails /></ProtectedRoute>} />
+        <Route path="/contest/:id/test" element={<ProtectedRoute><ContestTest /></ProtectedRoute>} />
+      </Routes>
     </BrowserRouter>
   );
 }

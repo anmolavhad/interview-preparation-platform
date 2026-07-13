@@ -2,6 +2,7 @@ import express from "express";
 import {
   createQuestion,
   getQuestions,
+  getAllQuestions,
   getQuestionById,
   updateQuestion,
   deleteQuestion,
@@ -13,6 +14,7 @@ const router = express.Router();
 
 router.post("/", protect, adminOnly, createQuestion);
 router.get("/", protect,getQuestions);
+router.get("/all", protect,getAllQuestions);
 router.get("/:id", protect,getQuestionById);
 router.put("/:id", protect, adminOnly, updateQuestion);
 router.delete("/:id", protect, adminOnly, deleteQuestion);
