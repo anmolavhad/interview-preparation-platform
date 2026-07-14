@@ -19,7 +19,7 @@ import CreateContest from "./pages/CreateContest";
 import Contests from "./pages/Contests";
 import ContestDetails from "./pages/ContestDetails";
 import ContestTest from "./pages/ContestTest";
-
+import ContestResult from "./pages/ContestResult";
 function App() {
   return (
     <BrowserRouter>
@@ -42,6 +42,7 @@ function App() {
         <Route path="/contests" element={<ProtectedRoute><Contests /></ProtectedRoute>} />
         <Route path="/contest/:id" element={<ProtectedRoute><ContestDetails /></ProtectedRoute>} />
         <Route path="/contest/:id/test" element={<ProtectedRoute><ContestTest /></ProtectedRoute>} />
+        <Route path="/contest-result/:attemptId" element={<ProtectedRoute><ContestResult /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   );

@@ -23,7 +23,7 @@ app.use("/api/test-attempts", testAttemptRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/tests", testRoutes);
 app.use("/api/contests",contestRoutes);
-app.use("/api/contest-attempts", contestRoutes);
+app.use("/api/contest-attempts", contestAttemptRoutes);
 
 const PORT = process.env.PORT || 5000;
 

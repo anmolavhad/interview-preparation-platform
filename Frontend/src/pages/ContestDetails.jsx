@@ -41,7 +41,7 @@ function ContestDetails() {
       const response = await api.post(
         `/contest-attempts/start/${id}`
       );
-
+      
       navigate(`/contest/${id}/test`, {
         state: {
           contest: response.data.contest,

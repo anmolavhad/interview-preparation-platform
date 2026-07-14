@@ -15,9 +15,12 @@ function ContestTest() {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [timeLeft, setTimeLeft] = useState(contest?.duration * 60);
   const [submitting, setSubmitting] = useState(false);
-
+  
+  const start = new Date(contest.startTime);
+  const end = new Date(start.getTime() + contest.duration * 60000);
+  const remainingSeconds = Math.max(0, Math.floor((end - new Date()) / 1000));
+  const [timeLeft, setTimeLeft] = useState(remainingSeconds);
   useEffect(() => {
     if (!contest || !attemptId) {
       navigate("/contests");
@@ -74,7 +77,7 @@ function ContestTest() {
           selectedAnswer,
         })
       );
-
+      // const timeTaken = Math.floor((Date.now() - attempt.startTime.getTime()) / 1000);
       const response = await api.put(
         `/contest-attempts/${attemptId}/submit`,
         {
