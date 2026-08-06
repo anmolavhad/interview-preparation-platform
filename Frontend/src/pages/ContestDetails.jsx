@@ -24,7 +24,6 @@ function ContestDetails() {
       setContest(response.data.contest);
     } catch (error) {
       console.log(error);
-
       alert(
         error.response?.data?.message ||
         "Unable to load contest."
@@ -41,7 +40,6 @@ function ContestDetails() {
       const response = await api.post(
         `/contest-attempts/start/${id}`
       );
-      
       navigate(`/contest/${id}/test`, {
         state: {
           contest: response.data.contest,
@@ -58,6 +56,40 @@ function ContestDetails() {
     }
   };
 
+  const handleContestAction = () => {
+  if (contest.attemptStatus === "NOT_STARTED") {
+    handleStartContest();
+  } else if (contest.attemptStatus === "IN_PROGRESS") {
+    handleStartContest();
+  } else {
+    navigate(`/contest-result/${contest.attemptId}`);
+  }
+};
+
+  const getButtonText = () => {
+  if (contest.status === "Upcoming")
+    return "Contest Not Started";
+
+  if (contest.status === "Completed")
+    return "Contest Ended (View Result)";
+
+  if (starting)
+    return "Loading...";
+
+  switch (contest.attemptStatus) {
+    case "NOT_STARTED":
+      return "Start Contest";
+
+    case "IN_PROGRESS":
+      return "Resume Contest";
+
+    case "SUBMITTED":
+      return "View Result";
+
+    default:
+      return "Start Contest";
+  }
+};
   if (loading) {
     return <h2>Loading...</h2>;
   }
@@ -135,22 +167,22 @@ function ContestDetails() {
         </div>
 
         <div className="start-btn-container">
-          <button
-            className="start-contest-btn"
-            disabled={
-              contest.status !== "Live" ||
-              starting
-            }
-            onClick={handleStartContest}
-          >
-            {contest.status === "Upcoming"
-              ? "Contest Not Started"
-              : contest.status === "Completed"
-              ? "Contest Ended"
-              : starting
-              ? "Starting..."
-              : "Start Contest"}
-          </button>
+          <div className="contest-actions">
+            <button
+              className="start-contest-btn"
+              onClick={handleContestAction}
+            >
+              {getButtonText()}
+            </button>
+            <button
+              className="leaderboard-btn"
+              onClick={() =>
+                navigate(`/contest/${contest._id}/leaderboard`)
+              }
+            >
+              View Leaderboard
+            </button>
+          </div>
         </div>
       </div>
     </>

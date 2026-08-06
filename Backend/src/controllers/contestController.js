@@ -67,7 +67,10 @@ export const getContestById = async (req, res) => {
         message: "Contest not found",
       });
     }
-    
+    const attempt = await ContestAttempt.findOne({
+      contest: contest._id,
+      user: req.user.userId,
+    });
     const participants = await ContestAttempt.countDocuments({
       contest: contest._id,
     });
@@ -98,6 +101,12 @@ export const getContestById = async (req, res) => {
         questionCount: contest.questions.length,
         participants,
         status,
+        attemptStatus: !attempt
+          ? "NOT_STARTED"
+          : attempt.isSubmitted
+          ? "SUBMITTED"
+          : "IN_PROGRESS",
+        attemptId: attempt?._id || null,
       },
     });
   } catch (error) {

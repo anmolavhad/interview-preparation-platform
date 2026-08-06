@@ -1,0 +1,113 @@
+.message{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+}
+
+.message.user{
+    flex-direction:row-reverse;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    flex-shrink:0;
+    background:#1B3C59;
+    color:white;
+}
+
+.message.user .avatar{
+    background:#11BFAE;
+}
+
+.bubble{
+    max-width:78%;
+    padding:18px 22px;
+    border-radius:18px;
+    line-height:1.8;
+    font-size:15px;
+    word-break:break-word;
+}
+
+.message.assistant .bubble{
+    background:white;
+    border:1px solid #E5E7EB;
+}
+
+.message.user .bubble{
+    background:#11BFAE;
+    color:white;
+}
+
+.message.user code{
+    background:rgba(255,255,255,.15);
+}
+
+.bubble p{
+    margin:12px 0;
+}
+
+.bubble h1,
+.bubble h2,
+.bubble h3,
+.bubble h4{
+    margin-top:25px;
+    margin-bottom:15px;
+    color:#1B3C59;
+}
+
+.message.user h1,
+.message.user h2,
+.message.user h3{
+    color:white;
+}
+
+.bubble ul,
+.bubble ol{
+    margin-left:25px;
+    margin-top:12px;
+    margin-bottom:12px;
+}
+
+.bubble li{
+    margin:8px 0;
+}
+
+.bubble table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+.bubble th,
+.bubble td{
+    border:1px solid #ddd;
+    padding:12px;
+}
+
+.bubble th{
+    background:#F3F4F6;
+}
+
+.bubble code{
+    background:#ECECEC;
+    padding:3px 6px;
+    border-radius:6px;
+    font-size:14px;
+}
+
+.bubble pre{
+    margin:18px 0;
+}
+
+.bubble blockquote{
+    border-left:4px solid #11BFAE;
+    padding-left:18px;
+    color:#555;
+    margin:18px 0;
+}

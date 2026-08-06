@@ -1,371 +1,219 @@
 .contest-test-page {
-
     max-width: 1400px;
-
     margin: 30px auto;
-
     padding: 0 20px;
-
 }
 
 .contest-header {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     background: white;
-
     padding: 20px 30px;
-
     border-radius: 12px;
-
     box-shadow: var(--shadow);
-
     margin-bottom: 25px;
-
 }
 
 .contest-header h2 {
-
     color: var(--primary);
-
     margin-bottom: 8px;
-
 }
 
 .contest-header p {
-
     color: var(--secondary);
-
 }
 
 .timer {
-
     background: #ef4444;
-
     color: white;
-
     padding: 12px 28px;
-
     border-radius: 10px;
-
     font-size: 1.4rem;
-
     font-weight: 700;
-
     letter-spacing: 2px;
-
 }
 
 .contest-body {
-
     display: grid;
-
     grid-template-columns: 260px 1fr;
-
     gap: 25px;
-
 }
 
 .question-palette {
-
     background: white;
-
     border-radius: 12px;
-
     box-shadow: var(--shadow);
-
     padding: 20px;
-
     height: fit-content;
-
     position: sticky;
-
     top: 20px;
-
 }
 
 .question-palette h3 {
-
     text-align: center;
-
     color: var(--primary);
-
     margin-bottom: 20px;
-
 }
 
 .palette-grid {
-
     display: grid;
-
-    grid-template-columns: repeat(5,1fr);
-
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
-
 }
 
 .palette-btn {
-
-    width: 42px;
-
-    height: 42px;
-
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 8px;
-
     border: 1px solid #d1d5db;
-
     background: white;
-
     cursor: pointer;
-
     font-weight: 600;
-
-    transition: .25s;
-
+    transition: 0.25s;
 }
 
 .palette-btn:hover {
-
     transform: scale(1.05);
-
 }
 
 .palette-btn.current {
-
     background: #2563eb;
-
     color: white;
-
     border: none;
-
 }
 
 .palette-btn.answered {
-
     background: #22c55e;
-
     color: white;
-
     border: none;
-
 }
 
 .question-section {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 20px;
-
 }
 
 .question-card {
-
     background: white;
-
     padding: 30px;
-
     border-radius: 12px;
-
     box-shadow: var(--shadow);
-
 }
 
 .question-card h3 {
-
     color: var(--primary);
-
     margin-bottom: 25px;
-
     line-height: 1.7;
-
 }
 
 .options {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 18px;
-
 }
 
 .option {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 15px 18px;
-
     border: 1px solid #d1d5db;
-
     border-radius: 10px;
-
     cursor: pointer;
-
-    transition: .25s;
-
+    transition: 0.25s;
 }
 
 .option:hover {
-
     background: #f8fafc;
-
     border-color: var(--primary);
-
 }
 
 .option input {
-
     transform: scale(1.2);
-
     cursor: pointer;
-
 }
 
 .navigation {
-
     display: flex;
-
     justify-content: space-between;
-
 }
 
 .navigation button {
-
     padding: 12px 35px;
-
     border: none;
-
     border-radius: 8px;
-
     background: var(--primary);
-
     color: white;
-
     font-size: 15px;
-
     cursor: pointer;
-
-    transition: .25s;
-
+    transition: 0.25s;
 }
 
 .navigation button:hover:not(:disabled) {
-
     background: var(--accent);
-
 }
 
 .navigation button:disabled {
-
     background: #9ca3af;
-
     cursor: not-allowed;
-
 }
 
 .submit-btn {
-
     align-self: center;
-
     width: 260px;
-
     padding: 15px;
-
     border: none;
-
     border-radius: 10px;
-
     background: #16a34a;
-
     color: white;
-
     font-size: 16px;
-
     font-weight: 600;
-
     cursor: pointer;
-
-    transition: .25s;
-
+    transition: 0.25s;
 }
 
 .submit-btn:hover:not(:disabled) {
-
     background: #15803d;
-
 }
 
 .submit-btn:disabled {
-
     background: #9ca3af;
-
     cursor: not-allowed;
-
 }
 
 @media (max-width: 900px) {
-
     .contest-body {
-
         grid-template-columns: 1fr;
-
     }
 
     .question-palette {
-
         position: static;
-
     }
-
 }
 
 @media (max-width: 600px) {
-
     .contest-header {
-
         flex-direction: column;
-
         gap: 20px;
-
         text-align: center;
-
     }
 
     .palette-grid {
-
-        grid-template-columns: repeat(4,1fr);
-
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .navigation {
-
         flex-direction: column;
-
         gap: 15px;
-
     }
 
     .navigation button {
-
         width: 100%;
-
     }
 
     .submit-btn {
-
         width: 100%;
-
     }
-
 }

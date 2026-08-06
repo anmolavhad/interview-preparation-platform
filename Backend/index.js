@@ -8,6 +8,8 @@ import dashboardRoutes from "./src/routes/dashboardRoutes.js";
 import testRoutes from "./src/routes/testRoutes.js";
 import contestRoutes from "./src/routes/contestRoutes.js";
 import contestAttemptRoutes from "./src/routes/contestAttemptRoutes.js";
+import leaderboardRoutes from "./src/routes/leaderboardRoutes.js";
+import aiRoutes from "./src/routes/aiRoutes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -24,7 +26,8 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/tests", testRoutes);
 app.use("/api/contests",contestRoutes);
 app.use("/api/contest-attempts", contestAttemptRoutes);
-
+app.use("/api/leaderboard", leaderboardRoutes);
+app.use("/api/ai", aiRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

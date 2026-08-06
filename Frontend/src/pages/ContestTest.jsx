@@ -16,17 +16,28 @@ function ContestTest() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  
-  const start = new Date(contest.startTime);
-  const end = new Date(start.getTime() + contest.duration * 60000);
-  const remainingSeconds = Math.max(0, Math.floor((end - new Date()) / 1000));
-  const [timeLeft, setTimeLeft] = useState(remainingSeconds);
+
+  const startTime = new Date(contest?.startTime);
+  const endTime = new Date(startTime.getTime() + contest?.duration * 60000);
+  const remainingTime = Math.max(0, Math.floor((endTime - new Date()) / 1000));
+  const [timeLeft, setTimeLeft] = useState(remainingTime);
+
+  useEffect(() => {
+    if (!contest) return;
+    checkAttemptStatus();
+    const interval = setInterval(() => {
+      checkAttemptStatus();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [contest]);
+
   useEffect(() => {
     if (!contest || !attemptId) {
       navigate("/contests");
       return;
     }
-  }, []);
+  }, [contest, attemptId, navigate]);
 
   useEffect(() => {
     if (!timeLeft) {
@@ -42,7 +53,7 @@ function ContestTest() {
   }, [timeLeft]);
 
   const current = contest.questions[currentQuestion];
-
+  const attemptStartTime = new Date(contest.attemptStartTime);
   const handleOptionSelect = (option) => {
     setAnswers({
       ...answers,
@@ -65,6 +76,20 @@ function ContestTest() {
     }
   };
 
+  const checkAttemptStatus = async () => {
+    if (submitting) return;
+    try {
+      const { data } = await api.get(
+        `/contest-attempts/status/${contest._id}`
+      );
+
+      if (data.attemptStatus === "SUBMITTED") {
+        navigate(`/contest-result/${data.attemptId}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleSubmit = async () => {
     if (submitting) return;
 
@@ -77,12 +102,11 @@ function ContestTest() {
           selectedAnswer,
         })
       );
-      // const timeTaken = Math.floor((Date.now() - attempt.startTime.getTime()) / 1000);
       const response = await api.put(
         `/contest-attempts/${attemptId}/submit`,
         {
           answers: formattedAnswers,
-          timeTaken: contest.duration * 60 - timeLeft,
+          timeTaken: Math.floor((endTime - attemptStartTime.getTime()) / 1000) - timeLeft,
         }
       );
 
@@ -120,6 +144,15 @@ function ContestTest() {
             {String(minutes).padStart(2, "0")}:
             {String(seconds).padStart(2, "0")}
           </div>
+          <button
+              className="submit-btn"
+              onClick={handleSubmit}
+              disabled={submitting}
+            >
+              {submitting
+                ? "Submitting..."
+                : "Submit Contest"}
+            </button>
         </div>
 
         <div className="contest-body">
@@ -186,16 +219,6 @@ function ContestTest() {
                 Next
               </button>
             </div>
-
-            <button
-              className="submit-btn"
-              onClick={handleSubmit}
-              disabled={submitting}
-            >
-              {submitting
-                ? "Submitting..."
-                : "Submit Contest"}
-            </button>
           </div>
         </div>
       </div>

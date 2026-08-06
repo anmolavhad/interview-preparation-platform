@@ -16,7 +16,6 @@ const contestAttemptSchema = new mongoose.Schema(
 
     startTime: {
       type: Date,
-      default: Date.now,
       required: true,
     },
 

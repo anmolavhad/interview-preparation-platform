@@ -20,6 +20,9 @@ import Contests from "./pages/Contests";
 import ContestDetails from "./pages/ContestDetails";
 import ContestTest from "./pages/ContestTest";
 import ContestResult from "./pages/ContestResult";
+import Leaderboard from "./pages/Leaderboard";
+import AITutor from "./pages/AITutor";
+
 function App() {
   return (
     <BrowserRouter>
@@ -43,6 +46,8 @@ function App() {
         <Route path="/contest/:id" element={<ProtectedRoute><ContestDetails /></ProtectedRoute>} />
         <Route path="/contest/:id/test" element={<ProtectedRoute><ContestTest /></ProtectedRoute>} />
         <Route path="/contest-result/:attemptId" element={<ProtectedRoute><ContestResult /></ProtectedRoute>} />
+        <Route path="/contest/:id/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
+        <Route path="/ai-tutor" element={<ProtectedRoute><AITutor /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   );

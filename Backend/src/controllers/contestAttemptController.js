@@ -11,7 +11,7 @@ export const startContest = async (req, res) => {
         message: "Contest not found",
       });
     }
-
+    
     const now = new Date();
 
     if (now < contest.startTime) {
@@ -43,7 +43,12 @@ export const startContest = async (req, res) => {
         answers: [],
       });
     }
-
+    //To check if user has already submitted the contest
+    if (attempt.isSubmitted) {
+      return res.status(400).json({
+        message: "You have already submitted this contest.",
+      });
+    }
     res.status(200).json({
       attemptId: attempt._id,
       contest: {
@@ -51,6 +56,8 @@ export const startContest = async (req, res) => {
         title: contest.title,
         duration: contest.duration,
         questions: contest.questions,
+        startTime: contest.startTime,
+        attemptStartTime: attempt.startTime,
       },
     });
   } catch (error) {
@@ -195,6 +202,39 @@ export const getContestResult = async (req, res) => {
         timeTaken: attempt.timeTaken,
         submittedAt: attempt.submittedAt,
       },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const getAttemptStatus = async (req, res) => {
+  try {
+    const { contestId } = req.params;
+
+    const attempt = await ContestAttempt.findOne({
+      contest: contestId,
+      user: req.user.userId,
+    });
+
+    if (!attempt) {
+      return res.status(200).json({
+        attemptStatus: "NOT_STARTED",
+      });
+    }
+
+    if (attempt.isSubmitted) {
+      return res.status(200).json({
+        attemptStatus: "SUBMITTED",
+        attemptId: attempt._id,
+      });
+    }
+
+    res.status(200).json({
+      attemptStatus: "IN_PROGRESS",
+      attemptId: attempt._id,
     });
   } catch (error) {
     res.status(500).json({

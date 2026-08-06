@@ -1,0 +1,107 @@
+.leaderboard-page {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.leaderboard-header {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.leaderboard-header h1 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.leaderboard-header p {
+    color: var(--secondary);
+    font-size: 16px;
+}
+
+.empty-state {
+    background: white;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    color: var(--secondary);
+    font-size: 18px;
+}
+
+.leaderboard-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.leaderboard-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard-table thead {
+    background: var(--primary);
+    color: white;
+}
+
+.leaderboard-table th {
+    padding: 18px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.leaderboard-table td {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 15px;
+}
+
+.leaderboard-table tbody tr {
+    transition: 0.25s;
+}
+
+.leaderboard-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.leaderboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.leaderboard-table tbody tr:nth-child(1) {
+    background: #fff8dc;
+    font-weight: 700;
+}
+
+.leaderboard-table tbody tr:nth-child(2) {
+    background: #f3f4f6;
+    font-weight: 600;
+}
+
+.leaderboard-table tbody tr:nth-child(3) {
+    background: #fdf2e9;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+    .leaderboard-header {
+        padding: 20px;
+    }
+
+    .leaderboard-table {
+        overflow-x: auto;
+    }
+
+    .leaderboard-table table {
+        min-width: 650px;
+    }
+}

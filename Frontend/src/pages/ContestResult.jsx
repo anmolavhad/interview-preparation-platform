@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-
+import { Link, useParams , useNavigate} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
 
@@ -8,7 +7,7 @@ import "../styles/ContestResult.css";
 
 function ContestResult() {
   const { attemptId } = useParams();
-
+  const navigate = useNavigate();
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -95,12 +94,14 @@ function ContestResult() {
           </div>
 
           <div className="result-buttons">
-            <Link
-              to={`/leaderboard/${result.contest._id}`}
+            <button
               className="leaderboard-btn"
+              onClick={() =>
+                navigate(`/contest/${result.contest._id}/leaderboard`)
+              }
             >
               View Leaderboard
-            </Link>
+            </button>
 
             <Link
               to="/contests"

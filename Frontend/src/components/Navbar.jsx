@@ -17,7 +17,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <Link
-        to="/dashboard"
+        to="/admin"
         className="logo">
         Interview Prep
       </Link>
@@ -26,7 +26,9 @@ function Navbar() {
         <Link to="/dashboard">
           Dashboard
         </Link>
-
+        <Link to="/ai-tutor">
+          AI Tutor
+        </Link>
         <Link to="/start-test">
           Start Test
         </Link>

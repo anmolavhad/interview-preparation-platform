@@ -160,23 +160,37 @@
 
 }
 
+/* Buttons */
+
 .start-btn-container{
 
     margin-top:35px;
 
-    text-align:center;
+}
+
+.contest-actions{
+
+    display:flex;
+
+    gap:16px;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
 
-.start-contest-btn{
+.contest-actions button{
 
-    padding:16px 45px;
+    flex:1;
+
+    max-width:250px;
+
+    padding:16px 20px;
 
     border:none;
 
     border-radius:10px;
-
-    background:var(--primary);
 
     color:white;
 
@@ -187,6 +201,12 @@
     cursor:pointer;
 
     transition:.3s;
+
+}
+
+.start-contest-btn{
+
+    background:var(--primary);
 
 }
 
@@ -204,20 +224,46 @@
 
 }
 
+.leaderboard-btn{
+
+    background:var(--primary);
+
+}
+
+.leaderboard-btn:hover{
+
+    background:var(--accent);
+
+}
+
 @media(max-width:768px){
 
-.contest-header{
+    .contest-header{
 
-    flex-direction:column;
+        flex-direction:column;
 
-    gap:15px;
+        gap:15px;
 
-}
+    }
 
-.contest-header h1{
+    .contest-header h1{
 
-    text-align:center;
+        text-align:center;
 
-}
+    }
+
+    .contest-actions{
+
+        flex-direction:column;
+
+    }
+
+    .contest-actions button{
+
+        width:100%;
+
+        max-width:none;
+
+    }
 
 }
